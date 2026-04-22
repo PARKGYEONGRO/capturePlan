@@ -1,0 +1,14 @@
+#가상환경
+venv/
+
+#API 키 보안 파일
+.env
+
+#로컬 DB
+db.sqlite3
+
+#Python cache
+__pycache__/
+
+#Upload Images
+media/

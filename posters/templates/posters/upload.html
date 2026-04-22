@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Capture Plan - 일정 등록</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .upload-btn {
+            width: 100px; height: 100px;
+            border: 2px dashed #ccc;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; cursor: pointer;
+        }
+    </style>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+</head>
+<body>
+    <h2>일정 추가</h2>
+    <form action="{% url 'upload_image' %}" method="post" enctype="multipart/form-data" id="uploadForm">
+        {% csrf_token %}
+        <label for="imageInput" class="upload-btn">+</label>
+        <input type="file" id="imageInput" name="poster_image" accept="image/*" style="display:none;" onchange="document.getElementById('uploadForm').submit();">
+    </form>
+    <p>사진을 선택하면 AI가 자동으로 분석합니다.</p>
+</body>
+</html>
